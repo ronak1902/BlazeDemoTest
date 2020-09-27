@@ -10,6 +10,8 @@ import cucumber.api.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import pageObjects.*;
 
 import java.io.IOException;
@@ -26,9 +28,9 @@ public class BlazeDemoStepDefs {
     PurchasePage purchasePage;
     FlightConfirmationPage flightConfirmationPage;
     String[] flightDetails = new String[5];
-    @Before
+    @Before("@BlazeTest")
     public void beforeScenario() {
-        System.setProperty("webdriver.chrome.driver", "C:\\BlazeDemoTest\\chromedriver.exe");
+    System.setProperty("webdriver.chrome.driver", "C:\\BlazeDemoTest\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-extensions");
@@ -36,6 +38,7 @@ public class BlazeDemoStepDefs {
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(12, TimeUnit.SECONDS);
         driver.get("https://blazedemo.com/");
+
     }
 
     @Given("A new User is Registered")
@@ -134,9 +137,17 @@ public class BlazeDemoStepDefs {
     public void blazemeter_open() {
     }
 
-    @After
+    @After("@BlazeTest")
     public void afterScenario() {
-       driver.close();
+        if(driver.toString().contains("null"))
+        {
+
+            System.out.print("All Browser windows are closed ");
+        }
+        else
+        {
+            driver.quit();
+        }
     }
 
 }
