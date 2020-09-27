@@ -13,7 +13,7 @@ atleast 20 more scenarios can be added for this website and more than 80% will f
 
 Space X Api Tests:
 
-Please not I have added Api tests in the same project as seperate cucumber project file.
+Note: I have added Api tests in the same project as seperate cucumber project file.
 Please also go through the scenarios for Api tests as well.
 
 I would like to add more scenarios for Space X as below:
