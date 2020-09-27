@@ -11,7 +11,7 @@ Scenarios to be added
 
 atleast 20 more scenarios can be added for this website and more than 80% will fail because website is too buggy
 
-Space Z Api Tests:
+Space X Api Tests:
 
 Please not I have added Api tests in the same project as seperate cucumber project file.
 Please also go through the scenarios for Api tests as well.
